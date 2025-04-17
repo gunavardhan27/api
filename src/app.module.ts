@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { IssueModule } from './issue/issue.module';
 import mongoose from 'mongoose';
 
 @Module({
@@ -13,6 +14,7 @@ import mongoose from 'mongoose';
       isGlobal: true, // This makes the config available globally across the app
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/nest'),
+    IssueModule,
   ],
   controllers: [AppController],
   providers: [AppService],

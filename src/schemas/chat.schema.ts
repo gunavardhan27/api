@@ -4,11 +4,11 @@ import { User } from './user.schema'; // Assuming you have a User schema
 
 @Schema({ timestamps: true })
 export class Chat extends Document {
-    @Prop()
-    name: string;
+  @Prop()
+  name: string;
 
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'User' }] })
-    members: User[];
+  @Prop({ type: [{ type: Types.ObjectId, ref: 'User' }] })
+  members: User[];
 }
 
 export const ChatSchema = SchemaFactory.createForClass(Chat);
