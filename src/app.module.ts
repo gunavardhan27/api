@@ -7,10 +7,12 @@ import { MongooseModule } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 
 @Module({
-  imports: [UserModule, ConfigModule.forRoot({
-    isGlobal: true,  // This makes the config available globally across the app
-  }),
-    MongooseModule.forRoot('mongodb://localhost:27017/nest')
+  imports: [
+    UserModule,
+    ConfigModule.forRoot({
+      isGlobal: true, // This makes the config available globally across the app
+    }),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -18,10 +20,10 @@ import mongoose from 'mongoose';
 export class AppModule {
   constructor() {
     mongoose.connection.on('connected', () => {
-      console.log('connected')
-    })
+      console.log('connected');
+    });
     mongoose.connection.on('error', (err) => {
-      console.log('mongo connection failed', err)
-    })
+      console.log('mongo connection failed', err);
+    });
   }
 }

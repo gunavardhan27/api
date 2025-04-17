@@ -1,4 +1,4 @@
 export interface UserInfo {
-    username: string,
-    profilePicture?: string
+  username: string;
+  profilePicture?: string;
 }
