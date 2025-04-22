@@ -20,6 +20,7 @@ export const User = model('User', userSchema)*/
 
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { relations } from 'src/interfaces';
 
 export type UserDocument = User & Document;
 
@@ -30,6 +31,12 @@ export class User {
 
   @Prop({ default: '' })
   profilePicture: string;
+
+  @Prop({required:true})
+  email: string;
+
+  @Prop({required:true, default:relations.OTHER,enum:relations})
+  relation:string;
 
   @Prop({ required: true })
   password: string;

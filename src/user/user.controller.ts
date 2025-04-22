@@ -39,7 +39,7 @@ export class UserController {
     try {
       const response = await this.userService.createUser(userData);
       res.status(HttpStatus.CREATED);
-      return { success: true, error: '', data: '' };
+      return { success: true, error: '', data: response };
     } catch (e) {
       return { success: false, error: e.message, data: '' };
     }

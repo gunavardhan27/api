@@ -9,3 +9,11 @@ export interface IUserInfo {
   profilePicture: string;
   token: string;
 }
+
+export enum relations {
+  FAMILY = 'Parent or Guardian',
+  EDUCATOR = 'Educator',
+  PROFESSIONAL = 'Support Professional',
+  INDIVIDUAL  = 'Individual Explorer',
+  OTHER = 'Other'
+}

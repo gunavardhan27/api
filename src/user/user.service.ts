@@ -14,7 +14,7 @@ export class UserService {
     constructor(@InjectModel(User.name) private readonly User: Model<IUser>) { }
     async createUser(userData: CreateUserDto) {
         try {
-            const { username, password } = userData;
+            const { username, password,email,relation } = userData;
             if (await this.User.findOne({ username })) {
                 throw new Error('username already taken');
             }
@@ -22,8 +22,10 @@ export class UserService {
             const user = await this.User.create({
                 username,
                 password: hashedPassword,
+                email,
+                relation
             });
-            return 'user created successfully';
+            return user;
         } catch (e) {
             throw e;
         }
